@@ -21,11 +21,13 @@ for p in range(len(data_power)):
         with open(Kfold_file_path, "rb") as fp:
             Kfold_results.append(np.load(fp))
             Kfold_labels.append("p="+str(data_power[p]))
+plt.clf()
 plt.suptitle("Box&Whisker plots of BIC for GMM model order selection")
 plt.xlabel("Training with N=10^p samples")
 plt.ylabel("Selection of model order")
 plt.boxplot(BIC_results, labels=BIC_labels)
 plt.savefig("BIC_model_order_results") #plt.show()
+plt.clf()
 plt.suptitle("Box&Whisker plots of Kfold for GMM model order selection")
 plt.xlabel("Training with N=10^p samples")
 plt.ylabel("Selection of model order")
